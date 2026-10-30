@@ -8,7 +8,7 @@ with 100 terms, it returns **6.15e-09 for x = -20, when the true value is
 with a formula, and fixes it. Every result is checked against a 50-digit
 reference computed with mpmath.
 
-![error vs x](graph1.png)
+![error vs x](images/graph1.png)
 
 ## Key findings
 - **Cause:** cancellation. For x = -20 the series adds terms as large as 4.3e7

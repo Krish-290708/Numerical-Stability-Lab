@@ -44,5 +44,5 @@ plt.grid(True)                    # light grid lines to help read values
 # Step 4: save and show
 
 # Save BEFORE show(): show() clears the figure, so a save after it is blank.
-plt.savefig("graph1.png", dpi=110)
+plt.savefig("images/graph1.png", dpi=110)
 plt.show()

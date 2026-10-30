@@ -37,5 +37,5 @@ plt.xticks(rotation=20, ha="right")       # tilt the names so they don't overlap
 plt.grid(True, axis="y")                  # horizontal grid lines only
 plt.tight_layout()                        # stop the labels getting cut off
 
-plt.savefig("graph4.png", dpi=110)        # save BEFORE show
+plt.savefig("images/graph4.png", dpi=110)        # save BEFORE show
 plt.show()

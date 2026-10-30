@@ -55,5 +55,5 @@ plt.title("Digits lost to cancellation: prediction vs reality")
 plt.legend()
 plt.grid(True)
 
-plt.savefig("graph3.png", dpi=110)   # save BEFORE show
+plt.savefig("images/graph3.png", dpi=110)   # save BEFORE show
 plt.show()

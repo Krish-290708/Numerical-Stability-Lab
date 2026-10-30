@@ -40,24 +40,24 @@ is cancellation, otherwise it is truncation.
 **Graph 1 (error vs x):** methods 1, 4 and 5 fail for negative x. At x = -20
 they are wrong in the very first digit. Methods 2, 3 and 6 stay accurate
 everywhere.
-  ![error vs x](graph1.png)
+  ![error vs x](images/graph1.png)
 
 **Graph 2 (error vs number of terms):** the plain series flattens at about
 1e-16 for x = 10, about 1e-8 for x = -10 and about 1 for x = -20.
 The flat level is set by cancellation, not by the number of terms.
-  ![relative error vs number of terms](graph2.png)
+  ![relative error vs number of terms](images/graph2.png)
 
 **Graph 3 (digits lost):** the loss is predicted by
 log10(largest term / |answer|). Measured loss follows this line closely until
 all 16 digits are gone (around x = -20).
-  ![digits lost vs x](graph3.png)
+  ![digits lost vs x](images/graph3.png)
 
 **Graph 4 (speed):** Horner and Horner + reciprocal were the fastest
 (about 3.5 microseconds per call), roughly 1.8x faster than the plain series
 (about 6.3 microseconds). Kahan was in between (about 5.7). Reciprocal, plain
 series and range reduction were within noise of each other. Timings vary from
 run to run, so small differences are not meaningful.
-  ![speed of each method](graph4.png)
+  ![speed of each method](images/graph4.png)
 
 ## What I learned
 - Rearranging the same sum (Horner) or protecting the additions (Kahan) does
