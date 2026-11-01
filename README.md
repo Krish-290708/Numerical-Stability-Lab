@@ -40,7 +40,9 @@ python graph1.py            # error vs x
 python graph2.py            # error vs number of terms
 python graph3.py            # digits lost, predicted vs measured
 python graph4.py            # speed
-python -m pytest            # 12 tests
+python -m pytest            # 46 tests
+python pricer.py            # Interactive option calculator
+python graphs_phase2.py
 ```
 
 ## Read more
@@ -55,6 +57,13 @@ The full write-up with all four graphs is in [report.md](report.md).
 | run_experiments.py | experiment runner, writes results.csv |
 | timing.py | speed comparison |
 | graph1.py to graph4.py | the figures |
+|normal_lab.py|
+|Black_Scholes_lab.py|
+|iv_lab.py|
+|stats_lab.py|
+|pricer.py|
+|graphs_phase2.py|
+|test_phase2.py|
 
 ## Skills demonstrated
 Taylor series and convergence (ratio test), floating-point error analysis,
@@ -65,10 +74,14 @@ pytest, and data analysis and visualisation with pandas and matplotlib.
 A second phase applies the same ideas to quantitative finance: a normal
 CDF built from series, a Black-Scholes option pricer, and implied volatility.
 
-## Phase 2 (upcoming)
-Phase 1 is complete. Phase 2 applies the same numerical thinking to
-quantitative finance, and is in progress:
-- Normal CDF computed from a series, with its own accuracy analysis
-- Black-Scholes option pricer built on top of it
-- Implied volatility solver
-- Numerically stable variance (Welford) and log-sum-exp
+## Phase 2: option pricing and statistics
+Phase 2 applies the same numerical thinking to quantitative finance. Everything
+is built from scratch and checked against a 60-digit reference.
+- Normal CDF from a series, with a continued-fraction fix for the left tail
+- Black-Scholes pricer for calls and puts
+- Implied volatility solver: Newton's method with a bisection fallback
+- Stable statistics: Welford variance, historical volatility, log-sum-exp
+- An interactive option calculator (`python pricer.py`)
+- 34 more automated tests (46 in total)
+
+Full write-up: [report2.md](report2.md)
