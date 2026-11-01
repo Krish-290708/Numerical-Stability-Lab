@@ -1,3 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 #   1) normal CDF: error vs x
 #   2) option prices: error vs strike
 #   3) implied volatility: where Newton works and where it fails
@@ -42,7 +45,7 @@ def graph1():
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig("p2_graph1.png", dpi=110)
+    plt.savefig("images/p2_graph1.png", dpi=110)
     plt.close()
 
 
@@ -77,7 +80,7 @@ def graph2():
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig("p2_graph2.png", dpi=110)
+    plt.savefig("images/p2_graph2.png", dpi=110)
     plt.close()
 
 
@@ -116,7 +119,7 @@ def graph3():
     plt.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=2)
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig("p2_graph3.png", dpi=110)
+    plt.savefig("images/p2_graph3.png", dpi=110)
     plt.close()
 
 
@@ -142,7 +145,7 @@ def graph4():
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig("p2_graph4.png", dpi=110)
+    plt.savefig("images/p2_graph4.png", dpi=110)
     plt.close()
 
 

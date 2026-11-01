@@ -1,3 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # graph1.py
 # Draws: relative error vs x for every method, using the data in results.csv
 

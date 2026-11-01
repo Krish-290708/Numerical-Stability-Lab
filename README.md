@@ -34,36 +34,40 @@ reference computed with mpmath.
 ## Run it
 ```
 pip install mpmath pandas matplotlib pytest
-python lab.py               # interactive explorer
-python run_experiments.py   # runs all methods, writes results.csv
-python graph1.py            # error vs x
-python graph2.py            # error vs number of terms
-python graph3.py            # digits lost, predicted vs measured
-python graph4.py            # speed
-python -m pytest            # 46 tests
-python pricer.py            # Interactive option calculator
-python graphs_phase2.py
+python lab.py                          # explore e^x one value at a time
+python pricer.py                       # interactive option calculator
+python experiments/run_experiments.py  # runs all methods, writes results.csv
+python experiments/graph1.py           # also graph2.py, graph3.py, graph4.py
+python experiments/graphs_phase2.py    # the four Phase 2 graphs
+python -m pytest                       # 46 tests
 ```
 
 ## Read more
-The full write-up with all four graphs is in [report.md](report.md).
+The full write-up with all four graphs is in [docs/report.md](report.md).
 
 ## Files
 | File | Purpose |
 |---|---|
-| exp_lab.py | the six methods and the error function |
-| lab.py | interactive explorer |
-| test_exp_lab.py | automated tests |
-| run_experiments.py | experiment runner, writes results.csv |
-| timing.py | speed comparison |
-| graph1.py to graph4.py | the figures |
-|normal_lab.py|
-|Black_Scholes_lab.py|
-|iv_lab.py|
-|stats_lab.py|
-|pricer.py|
-|graphs_phase2.py|
-|test_phase2.py|
+| exp_lab.py | the six methods for computing e^x and the error function (Phase 1) |
+| normal_lab.py | normal pdf and CDF: series near zero, continued fraction in the left tail |
+| Black_Scholes_lab.py | Black-Scholes prices for European calls and puts |
+| iv_lab.py | implied volatility solver: Newton's method with a bisection fallback |
+| stats_lab.py | Welford variance, historical volatility and log-sum-exp |
+| lab.py | interactive e^x explorer: type x and n, get the answer and a diagnosis |
+| pricer.py | interactive option calculator: price an option or find its implied volatility |
+| experiments/run_experiments.py | runs all six e^x methods and writes results.csv |
+| experiments/timing.py | speed comparison of the e^x methods |
+| experiments/graph1.py to graph4.py | the four Phase 1 figures |
+| experiments/graphs_phase2.py | the four Phase 2 figures |
+| checks/check_stage1.py to check_stage5.py | checks for each Phase 2 stage, compared against a 60-digit reference |
+| checks/measure_tail.py | shows how many digits the normal CDF series loses in the left tail |
+| tests/test_exp_lab.py | 12 automated tests for Phase 1 |
+| tests/test_phase2.py | 34 automated tests for Phase 2 |
+| docs/report.md | Phase 1 write-up |
+| docs/report2.md | Phase 2 write-up |
+| results.csv | measurements from run_experiments.py |
+| images/ | all the graphs |
+| pytest.ini | tells pytest where the tests and the code are |
 
 ## Skills demonstrated
 Taylor series and convergence (ratio test), floating-point error analysis,
@@ -84,4 +88,4 @@ is built from scratch and checked against a 60-digit reference.
 - An interactive option calculator (`python pricer.py`)
 - 34 more automated tests (46 in total)
 
-Full write-up: [report2.md](report2.md)
+Full write-up: [docs/report2.md](report2.md)

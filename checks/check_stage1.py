@@ -1,3 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # check_stage1.py - compares normal_cdf with a 50-digit reference
 from mpmath import mp, mpf, ncdf
 from normal_lab import normal_cdf

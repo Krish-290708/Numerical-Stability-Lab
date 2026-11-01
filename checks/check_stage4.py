@@ -1,3 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # check_stage4.py - round trip: sigma -> price -> implied sigma
 from iv_lab import (model_price, vega, implied_vol_bisection,
                     implied_vol_newton, implied_vol)

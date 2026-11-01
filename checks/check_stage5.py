@@ -1,3 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # check_stage5.py - checks for Stage 5 (stable statistics)
 import math
 import random

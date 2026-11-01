@@ -1,3 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # graph4.py
 # Draws: how long each method takes (microseconds per call).
 # Reads the time_us column of results.csv, which run_experiments.py wrote.

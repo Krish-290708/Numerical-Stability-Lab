@@ -29,7 +29,7 @@ fraction, which only adds and divides positive numbers:
 Q(x) = pdf(x) / (x + 1/(x + 2/(x + 3/(x + ...)))), with Phi(-x) = Q(x).
 The stable version stays at about 1e-16 from x = -20 upwards.
 
-![normal CDF error](p2_graph1.png)
+![normal CDF error](../images/p2_graph1.png)
 
 **Limits.** Supported for x from -20 upwards. Below -20 the function raises an
 error, because e^(-x^2/2) needs more terms than the code uses. Above 8.3 it
@@ -49,7 +49,7 @@ than the price they produce, so the subtraction cancels digits. Those options
 are worth almost nothing (1.4e-27 at K = 300), so the loss has no practical
 effect.
 
-![option price error](p2_graph2.png)
+![option price error](../images/p2_graph2.png)
 
 ## 3. Implied volatility
 **Method.** Two solvers: bisection (always works, 43 steps) and Newton's
@@ -64,7 +64,7 @@ started at sigma = 0.2, has vega 3e-8 and jumps to sigma = 106,925.
 cases [check against your graph]. The combined solver recovered sigma to
 about 1e-12 in the well-behaved cases (vega above 0.1).
 
-![Newton success map](p2_graph3.png)
+![Newton success map](../images/p2_graph3.png)
 
 **A different kind of limit.** For a deep in-the-money call (K = 60, true
 sigma = 0.10, vega 7e-12) even bisection returns 0.0932, an error of 6.8e-3.
@@ -78,7 +78,7 @@ large numbers. For data 1e9 + [4, 7, 13, 16] it returns -170.67 (a negative
 variance), where the true value is 30. Welford's method, which works with
 small distances from a running mean, returns 30 at every offset tested.
 
-![variance error](p2_graph4.png)
+![variance error](../images/p2_graph4.png)
 
 **Historical volatility.** Log returns, Welford variance, then multiplied by
 sqrt(252). On a simulated year at a true 20% the estimate was 0.1952. This is

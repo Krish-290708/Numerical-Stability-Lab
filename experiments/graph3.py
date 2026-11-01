@@ -1,3 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # graph3.py
 # Checks a prediction: how many digits does cancellation destroy?
 #   predicted loss = log10(largest term / |true answer|)

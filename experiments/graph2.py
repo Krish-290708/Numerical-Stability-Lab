@@ -1,3 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # graph2.py
 # Draws: relative error vs number of terms, for several values of x.
 # Needs exp_lab.py in the same folder (it uses your functions).

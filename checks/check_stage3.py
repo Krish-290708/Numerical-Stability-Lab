@@ -1,3 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import math
 from mpmath import mp, mpf, ncdf, log, sqrt, exp
 from Black_Scholes_lab import call_price, put_price
