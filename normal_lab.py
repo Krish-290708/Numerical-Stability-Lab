@@ -1,4 +1,3 @@
-# normal_lab.py
 # The standard normal distribution:
 #   normal_pdf          height of the bell curve
 #   normal_cdf          Phi(x) from a series (accurate near zero)
