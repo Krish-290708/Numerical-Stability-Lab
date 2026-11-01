@@ -43,7 +43,7 @@ python -m pytest                       # 46 tests
 ```
 
 ## Read more
-The full write-up with all four graphs is in [docs/report.md](report.md).
+The full write-up with all four graphs is in [report.md](docs/report.md).
 
 ## Files
 | File | Purpose |
@@ -88,4 +88,4 @@ is built from scratch and checked against a 60-digit reference.
 - An interactive option calculator (`python pricer.py`)
 - 34 more automated tests (46 in total)
 
-Full write-up: [docs/report2.md](report2.md)
+Full write-up: [report2.md](docs/report2.md)
