@@ -40,6 +40,7 @@ python experiments/run_experiments.py  # runs all methods, writes results.csv
 python experiments/graph1.py           # also graph2.py, graph3.py, graph4.py
 python experiments/graphs_phase2.py    # the four Phase 2 graphs
 python -m pytest                       # 46 tests
+streamlit run app.py
 ```
 
 ## Read more
@@ -68,6 +69,8 @@ The full write-up with all four graphs is in [report.md](docs/report.md).
 | results.csv | measurements from run_experiments.py |
 | images/ | all the graphs |
 | pytest.ini | tells pytest where the tests and the code are |
+| app.py | the interactive web app |
+| requirements.txt | the packages the app needs |
 
 ## Skills demonstrated
 Taylor series and convergence (ratio test), floating-point error analysis,
