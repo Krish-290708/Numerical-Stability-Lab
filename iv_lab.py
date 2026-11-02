@@ -57,6 +57,12 @@ def implied_vol_bisection(kind, market, S, K, T, r,
     if the price there is below the market price, sigma is too small, so
     move 'low' up; otherwise move 'high' down. Each step halves the gap.
     """
+    # Safety check: the answer must lie between low and high.
+    # If even sigma = high gives a price below the market price, the search
+    # range is too small, and the loop below would silently return 'high'.
+    if model_price(kind, S, K, T, r, high) < market:
+        raise ValueError("implied vol is above the search range (more than high)")
+
     steps = 0
     while high - low > tol:
         mid = (low + high) / 2

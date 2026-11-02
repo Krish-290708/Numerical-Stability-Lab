@@ -271,7 +271,9 @@ def tab_pricer():
         f"(the strike plus what you paid) for you to profit.\n"
         f"- **Worst case:** you lose the {call:.2f} you paid, never more.\n"
         f"- **Chance:** the model puts about {normal_cdf_stable(d2) * 100:.0f}% on the stock "
-        f"finishing above {K:g}. That is the model's own estimate, not a forecast."
+        f"finishing above {K:g}. This is a *risk-neutral* probability (the pricing maths "
+        f"pretends investors need no extra reward for risk), so it is a model number, "
+        f"not a forecast of what will really happen."
     )
 
     # --- two charts ---

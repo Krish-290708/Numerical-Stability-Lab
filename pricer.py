@@ -34,7 +34,7 @@ def explain_price(S, K, T, sigma, call, d2):
     low, high, move_pct = typical_range(S, sigma, T)
     intrinsic = max(S - K, 0)                 # what you would gain by using the right immediately
     time_value = call - intrinsic             # the rest: the price of the CHANCE
-    chance = normal_cdf_stable(d2) * 100      # model's chance of finishing above K
+    chance = normal_cdf_stable(d2) * 100      # risk-neutral chance of finishing above K (N(d2))
 
     print("\nWHAT THIS MEANS")
     print("-" * 50)
@@ -48,7 +48,9 @@ def explain_price(S, K, T, sigma, call, d2):
     print(f"  (the strike {K:g} plus the {call:.2f} you paid).")
     print(f"Worst case: you lose the {call:.2f} you paid, never more.")
     print(f"Chance: the model puts about {chance:.0f}% on the stock finishing above {K:g}.")
-    print("  (That is the model's own estimate, not a forecast.)")
+    print("  This is a 'risk-neutral' probability: it comes from the pricing maths,")
+    print("  which pretends investors need no extra reward for taking risk.")
+    print("  The real-world chance can be different. Treat it as a model number, not a forecast.")
 
 
 def explain_implied_vol(kind, market, S, K, T, r, sigma):
@@ -97,6 +99,8 @@ def print_basics():
     print("Time value        the rest of the price: the chance things move your way.")
     print("Vega              how much the price changes if volatility rises by 1.00.")
     print("Break-even        strike plus premium (for a call): where you start to profit.")
+    print("Risk-neutral      a pricing-maths world where investors need no reward for risk.")
+    print("                  Option prices are built in it, so the 'chance' shown is not a forecast.")
 
 
 print("=" * 50)

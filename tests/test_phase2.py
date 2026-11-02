@@ -201,10 +201,15 @@ def test_I7_vega_matches_a_numerical_slope():
              - call_price(100, 100, 1, 0.05, 0.2 - h)) / (2 * h)
     assert vega(100, 100, 1, 0.05, 0.2) == pytest.approx(slope, rel=1e-6)
 
-
-# =====================================================================
+def test_I8_bisection_refuses_when_sigma_is_outside_its_range():
+    """Price made with sigma = 8 cannot be found in [0.001, 5].
+    Bisection must say so instead of quietly returning 5.0."""
+    price = call_price(100, 100, 0.25, 0.05, 8.0)
+    with pytest.raises(ValueError):
+        implied_vol_bisection("call", price, 100, 100, 0.25, 0.05)
+        
 # S: STATISTICS (stats_lab.py)
-# =====================================================================
+
 def test_S1_variance_small_numbers():
     """Both methods agree on easy data: variance of [4, 7, 13, 16] is 30."""
     assert variance_naive([4, 7, 13, 16]) == pytest.approx(30)
