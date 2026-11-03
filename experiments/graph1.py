@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt  # draws the graph
 
 # Step 1: load the data
 
-# results.csv must be in the same folder as this file.
+# # results.csv must be in the folder you run this from (the repo root).
 # Columns: x, method, terms, result, relative_error, correct_digits, time_us
 df = pd.read_csv("results.csv")
 

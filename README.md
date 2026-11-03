@@ -1,4 +1,5 @@
 # Numerical Stability Lab
+**Version 1.0 — complete.** Version 2.0 is planned (see Roadmap below)
 
 **When correct math gives wrong answers, and how to fix it.**
 
@@ -33,13 +34,13 @@ reference computed with mpmath.
 
 ## Run it
 ```
-pip install mpmath pandas matplotlib pytest
+pip install -r requirements.txt pytest
 python lab.py                          # explore e^x one value at a time
 python pricer.py                       # interactive option calculator
 python experiments/run_experiments.py  # runs all methods, writes results.csv
 python experiments/graph1.py           # also graph2.py, graph3.py, graph4.py
 python experiments/graphs_phase2.py    # the four Phase 2 graphs
-python -m pytest                       # 46 tests
+python -m pytest                       # 47 tests
 streamlit run app.py
 ```
 
@@ -63,7 +64,7 @@ The full write-up with all four graphs is in [report.md](docs/report.md).
 | checks/check_stage1.py to check_stage5.py | checks for each Phase 2 stage, compared against a 60-digit reference |
 | checks/measure_tail.py | shows how many digits the normal CDF series loses in the left tail |
 | tests/test_exp_lab.py | 12 automated tests for Phase 1 |
-| tests/test_phase2.py | 34 automated tests for Phase 2 |
+| tests/test_phase2.py | 35 automated tests for Phase 2 |
 | docs/report.md | Phase 1 write-up |
 | docs/report2.md | Phase 2 write-up |
 | results.csv | measurements from run_experiments.py |
@@ -77,10 +78,6 @@ Taylor series and convergence (ratio test), floating-point error analysis,
 benchmarking against a high-precision reference, automated testing with
 pytest, and data analysis and visualisation with pandas and matplotlib.
 
-## Next
-A second phase applies the same ideas to quantitative finance: a normal
-CDF built from series, a Black-Scholes option pricer, and implied volatility.
-
 ## Phase 2: option pricing and statistics
 Phase 2 applies the same numerical thinking to quantitative finance. Everything
 is built from scratch and checked against a 60-digit reference.
@@ -89,6 +86,31 @@ is built from scratch and checked against a 60-digit reference.
 - Implied volatility solver: Newton's method with a bisection fallback
 - Stable statistics: Welford variance, historical volatility, log-sum-exp
 - An interactive option calculator (`python pricer.py`)
-- 34 more automated tests (46 in total)
+- 35 more automated tests (47 in total)
 
 Full write-up: [report2.md](docs/report2.md)
+
+## Roadmap — Version 2.0 (planned)
+
+Version 1.0 covers numerical stability of the exponential series, the normal CDF,
+a Black-Scholes pricer, implied volatility solvers and stable statistics.
+Version 2.0 will test what happens when the model's assumptions are relaxed.
+
+**Stage 1 — Strengthen V1**
+- Repeatable benchmarks: repeated runs, timing spread, hardware and Python version
+- More edge-case tests (σ → 0, T → 0, prices near the no-arbitrage bounds)
+
+**Stage 2 — Option Greeks**
+- Delta, Gamma, Vega, Theta, Rho
+- Each computed analytically and by finite differences; accuracy vs step size
+- Low-vega study: when implied volatility cannot be estimated reliably
+- Implied-volatility smile and skew on synthetic data
+
+**Stage 3 — Market data**
+- Daily option-chain snapshots collected by the project
+- Model-implied vs market-implied volatility, plotted by strike
+- Stability tests of historical volatility on real prices vs deliberately hard data
+
+**Stage 4 — Research write-up**
+- Technical report with derivations, methodology and limitations
+- Polished, reproducible demo

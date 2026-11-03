@@ -71,19 +71,20 @@ run to run, so small differences are not meaningful.
 
 ## How to run
 ```
+Run every command from the repository's top-level folder (the one that contains README.md).
 pip install mpmath pandas matplotlib pytest
-python run_experiments.py   # writes results.csv
-python graph1.py
-python graph2.py
-python graph3.py
-python graph4.py
-python -m pytest            # runs the tests
+python experiments/run_experiments.py   # writes results.csv
+python experiments/graph1.py
+python experiments/graph2.py
+python experiments/graph3.py
+python experiments/graph4.py
+python -m pytest                        # runs the tests
 ```
 
 ## Files
 - lab.py: interactive single-x explorer (type x and n, see the diagnosis)
 - exp_lab.py: all six methods and the error function
-- test_exp_lab.py: automated tests
-- run_experiments.py: runs all methods, writes results.csv
-- timing.py: speed comparison
-- graph1.py, graph2.py, graph3.py: the figures; graph4.py: the speed chart
+- tests/test_exp_lab.py: automated tests
+- experiments/run_experiments.py: runs all methods, writes results.csv
+- experiments/timing.py: speed comparison
+- experiments/graph1.py, graph2.py, graph3.py: the figures; graph4.py: the speed chart

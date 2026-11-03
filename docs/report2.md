@@ -90,7 +90,7 @@ the maximum first gives the exact answer, for example 1000.6931 for
 [1000, 1000].
 
 ## 5. Tests
-34 automated tests cover the four modules (46 together with the Phase 1 tests).
+35 automated tests cover the four modules (47 together with the Phase 1 tests).
 Several tests assert that the naive method fails, so the problem itself is
 tested and not only the fix. I also checked the tests by breaking the code in
 four ways; each was caught.
