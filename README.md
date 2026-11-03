@@ -99,6 +99,7 @@ Version 2.0 will test what happens when the model's assumptions are relaxed.
 **Stage 1 — Strengthen V1**
 - Repeatable benchmarks: repeated runs, timing spread, hardware and Python version
 - More edge-case tests (σ → 0, T → 0, prices near the no-arbitrage bounds)
+- Independent cross-checks of the pricer: Monte Carlo simulation and SciPy, as a script in checks/
 
 **Stage 2 — Option Greeks**
 - Delta, Gamma, Vega, Theta, Rho
