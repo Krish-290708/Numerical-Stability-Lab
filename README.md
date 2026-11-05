@@ -94,24 +94,35 @@ Full write-up: [report2.md](docs/report2.md)
 
 Version 1.0 covers numerical stability of the exponential series, the normal CDF,
 a Black-Scholes pricer, implied volatility solvers and stable statistics.
-Version 2.0 will test what happens when the model's assumptions are relaxed.
+Version 2.0 tests what happens when the model's assumptions are relaxed, and
+compares different ways of computing the same option price.
 
 **Stage 1 — Strengthen V1**
 - Repeatable benchmarks: repeated runs, timing spread, hardware and Python version
+- Benchmark table per method: absolute error, relative error, runtime, convergence, failure rate, sensitivity
+- Implied-vol solvers (Newton, bisection, combined) compared over a much larger grid
 - More edge-case tests (σ → 0, T → 0, prices near the no-arbitrage bounds)
-- Independent cross-checks of the pricer: Monte Carlo simulation and SciPy, as a script in checks/
+- Independent cross-checks of the pricer: Monte Carlo simulation and SciPy, as scripts in checks/
 
-**Stage 2 — Option Greeks**
-- Delta, Gamma, Vega, Theta, Rho
-- Each computed analytically and by finite differences; accuracy vs step size
+**Stage 2 — Dividends, Greeks and the smile**
+- Dividend yield (Black-Scholes-Merton)
+- Delta, Gamma, Vega, Theta, Rho, each computed by formula, finite differences and complex step
+- Accuracy of each Greek vs step size
 - Low-vega study: when implied volatility cannot be estimated reliably
 - Implied-volatility smile and skew on synthetic data
 
+**Stage 2b — Other pricing methods**
+- Monte Carlo pricer: error vs number of paths
+- Binomial tree pricer: convergence to Black-Scholes, and American options
+- Four-way comparison with the closed form: accuracy, speed, failure rate
+
 **Stage 3 — Market data**
-- Daily option-chain snapshots collected by the project
+- Daily option-chain snapshots collected by the project (Indian market if data is available, otherwise yfinance)
 - Model-implied vs market-implied volatility, plotted by strike
 - Stability tests of historical volatility on real prices vs deliberately hard data
 
-**Stage 4 — Research write-up**
-- Technical report with derivations, methodology and limitations
+**Stage 4 — Technical report**
+- Technical report with derivations, methodology, limitations and a full test-case appendix
 - Polished, reproducible demo
+
+**Future work:** finite-difference (PDE) pricer and its stability limits.
